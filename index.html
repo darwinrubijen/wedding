@@ -112,9 +112,17 @@ footer {
 
 <body>
 
-<audio autoplay loop>
+<audio id="bgMusic" autoplay loop muted>
   <source src="Tunay - Lance Santdas.mp3" type="audio/mpeg">
 </audio>
+
+<script>
+window.addEventListener("click", function () {
+  const music = document.getElementById("bgMusic");
+  music.muted = false;
+  music.play();
+});
+</script>
 
 <section>
   <div class="container">
