@@ -112,18 +112,10 @@ footer {
 
 <body>
 
-<audio id="bgMusic" loop>
-  <source src="Tunay - Lance Santdas.mp3" type="audio/mpeg">
+<button class="music-btn" onclick="toggleMusic()">Music ♫</button> 
+<audio id="bgMusic" loop> 
+	<source src="Tunay - Lance Santdas.mp3" type="audio/mp3">
 </audio>
-
-<script>
-window.onload = function() {
-  const music = document.getElementById("bgMusic");
-  music.play().catch(() => {
-    console.log("Autoplay blocked by browser");
-  });
-};
-</script>
 
 <section>
   <div class="container">
