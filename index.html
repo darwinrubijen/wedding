@@ -112,16 +112,17 @@ footer {
 
 <body>
 
-<audio id="bgMusic" autoplay loop muted>
+<audio id="bgMusic" loop>
   <source src="Tunay - Lance Santdas.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-window.addEventListener("click", function () {
+window.onload = function() {
   const music = document.getElementById("bgMusic");
-  music.muted = false;
-  music.play();
-});
+  music.play().catch(() => {
+    console.log("Autoplay blocked by browser");
+  });
+};
 </script>
 
 <section>
