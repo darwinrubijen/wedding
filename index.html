@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Darwin & Rubijen | December 10, 2027</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #6E7F9A; /* Dusty Blue */
+  --text: #ffffff;
+  --accent: #d8dee9;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  text-align:center;
+  line-height:1.6;
+}
+
+section {
+  padding:80px 20px;
+}
+
+.container {
+  max-width:800px;
+  margin:auto;
+}
+
+h1 {
+  font-family:'Playfair Display', serif;
+  font-size:3rem;
+  margin-bottom:10px;
+}
+
+h2 {
+  font-weight:400;
+  letter-spacing:3px;
+  font-size:1rem;
+  color:var(--accent);
+  margin-bottom:40px;
+}
+
+.button {
+  display:inline-block;
+  margin-top:25px;
+  padding:12px 30px;
+  border:1px solid white;
+  text-decoration:none;
+  color:white;
+  font-size:0.85rem;
+  letter-spacing:1px;
+  transition:.3s;
+}
+
+.button:hover {
+  background:white;
+  color:#6E7F9A;
+}
+
+.countdown {
+  font-size:1.2rem;
+  margin-top:20px;
+  letter-spacing:2px;
+}
+
+.gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:15px;
+  margin-top:30px;
+}
+
+.gallery img {
+  width:100%;
+  height:250px;
+  object-fit:cover;
+}
+
+.map iframe {
+  width:100%;
+  height:350px;
+  border:0;
+  margin-top:20px;
+}
+
+.music-btn {
+  position:fixed;
+  top:20px;
+  right:20px;
+  padding:10px 15px;
+  border:1px solid white;
+  background:transparent;
+  color:white;
+  cursor:pointer;
+  font-size:0.8rem;
+}
+
+footer {
+  padding:40px 20px;
+  font-size:0.8rem;
+  color:#e5e9f0;
+}
+</style>
+</head>
+
+<body>
+
+<button class="music-btn" onclick="toggleMusic()">Music ♫</button>
+<audio id="bgMusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<section>
+  <div class="container">
+    <h1>Darwin & Rubijen</h1>
+    <h2>WE ARE GETTING MARRIED</h2>
+    <p>December 10, 2027</p>
+    <p>Baguio City</p>
+
+    <div class="countdown" id="countdown"></div>
+
+    <a class="button" href="https://forms.gle/" target="_blank">RSVP</a>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>THE DETAILS</h2>
+    <p><strong>Ceremony:</strong> 2:00 PM</p>
+    <p><strong>Reception:</strong> 5:00 PM</p>
+    <p><strong>Dress Code:</strong> Formal / Neutral tones</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>LOCATION</h2>
+    <p>Baguio City, Philippines</p>
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.184518448749!2d120.62303727584516!3d16.415452584315304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391a6abdc31940b%3A0xe8070a26b3f9efe4!2sGrand%20Sierra%20Pines%20Baguio!5e0!3m2!1sen!2sph!4v1772671926262!5m2!1sen!2sph">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>OUR MOMENTS</h2>
+    <div class="gallery">
+      <img src="https://source.unsplash.com/600x800/?couple,love" alt="">
+      <img src="https://source.unsplash.com/600x800/?engagement" alt="">
+      <img src="https://source.unsplash.com/600x800/?wedding,romantic" alt="">
+      <img src="https://source.unsplash.com/600x800/?flowers,wedding" alt="">
+    </div>
+  </div>
+</section>
+
+<footer>
+  With love, we invite you to celebrate our special day.
+</footer>
+
+<script>
+// Countdown
+const weddingDate = new Date("December 10, 2027 00:00:00").getTime();
+const countdownEl = document.getElementById("countdown");
+
+setInterval(function() {
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+  countdownEl.innerHTML = days + " DAYS • " + hours + " HOURS • " + minutes + " MINUTES";
+}, 1000);
+
+// Music toggle
+function toggleMusic() {
+  const music = document.getElementById("bgMusic");
+  if (music.paused) {
+    music.play();
+  } else {
+    music.pause();
+  }
+}
+</script>
+
+</body>
+</html>
